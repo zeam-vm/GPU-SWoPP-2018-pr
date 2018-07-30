@@ -1,0 +1,24 @@
+<div class="small"><h2>Flow</h2>
+
+<ul>
+<li>José Valimが2017年に開発したMapReduceモデルに近い並列プログラミングライブラリ</li>
+<li>下記コードは全体として，1から1000までの整数<code>n</code>に対し，<code>bar(foo(n))</code>を要素とするリストを生成する</li>
+</ul>
+
+</div><pre><code class="elixir">1..1000
+    |&gt; Flow.from_enumerable()
+    |&gt; Flow.map(foo)
+    |&gt; Flow.map(bar)
+    |&gt; Enum.to_list
+</code></pre>
+
+<div class="small"><ul>
+<li><code>1..1000</code>は1から1000までの要素を持つリストを生成する</li>
+<li><code>|&gt;</code>はパイプライン演算子で，前に与えられたデータを次の関数の第1引数として渡す</li>
+<li><code>Flow.from_enumerable()</code>は，並列処理するためにリストをプロセッサに分配する</li>
+<li><code>Flow.map(foo)</code> は，リストの各要素に関数<code>foo</code>を適用する(並列に実行される)</li>
+<li><code>Flow.map(bar)</code> は，リストの各要素に関数<code>bar</code>を適用する(並列に実行される)</li>
+<li><code>Enum.to_list</code> で計算結果を集計してリストに編成する</li>
+</ul>
+
+</div>
