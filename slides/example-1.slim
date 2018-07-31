@@ -1,0 +1,19 @@
+h2  Elixir / Flow コード例
+
+.small
+	markdown:
+		* José Valimが2017年に開発したMapReduceモデルに近い並列プログラミングライブラリ
+		* 下記コードは1から10000までの整数`n`に対し，`bar(foo(n))`を要素とするリストを生成する
+			* マルチコアCPU上で並列実行する
+
+pre
+	code.lang-elixir.hljs.large
+		| 0..10000                  # 0〜10000のリストを生成する
+		= "\n"
+		| |> Flow.from_enumerable   # プロセッサに分配する
+		= "\n"
+		| |> Flow.map(foo)          # リストの各要素に foo を適用する
+		= "\n"
+		| |> Flow.map(bar)          # リストの各要素に bar を適用する
+		= "\n"
+		| |> Enum.to_list           # リストに戻す
