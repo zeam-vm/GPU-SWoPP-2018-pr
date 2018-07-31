@@ -1,0 +1,27 @@
+.small
+	markdown:
+		## 評価環境
+ruby:
+	def markdown_env
+		Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true, :tables => true).render(<<"EOS"
+	|             | Mac Pro (Mid 2010)     | GCE                     |
+	|:------------|-----------------------:|------------------------:|
+	| OS          | macOS Sierra 10.12.6   | ubuntu 16.04            |
+	| Elixir      | 1.6.6 (OTP 21)         | 1.6.6 (OTP 21)          |
+	| Flow        | 0.14                   | 0.14                    |
+	| Rust        | 1.27.0                 | 1.27.0                  |
+	| OpenCL      | 1.2                    | 1.2                     |
+	| Rustler     | 0.17.1                 | 0.17.1                  |
+	| ocl         | 0.18                   | 0.18                    |
+	| rayon       | 1.0                    | 1.0                     |
+	| scoped-pool | 1.0.0                  | 1.0.0                   |
+	| Python      | 3.6.0 (Anaconda 4.3.0) | 3.5.2                   |
+	| CUDA        | N/A                    | 9.0 (CuPy), 9.2 (その他) |
+	| NumPy       | 1.11.3                 | 1.14.3                  |
+	| CuPy        | N/A                    | 4.1.0                   |
+	EOS
+		)
+	end
+.small
+	== markdown_env
+
