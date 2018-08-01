@@ -1,0 +1,21 @@
+.small
+	markdown:
+		## 設定容易性の議論
+ruby:
+	def markdown_setting
+		Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true, :tables => true).render(<<"EOS"
+	|                           | CuPy   | Hastega |
+	|:--------------------------|-------:|--------:|
+	| GPU環境のインストール         | \* 4   | 1       |
+	| プログラミング言語のインストール | \** 0  | 4       |
+	| ライブラリのインストール       | 2      | 1       |
+	EOS
+		)
+	end
+.small
+	== markdown_setting
+	markdown:
+		* **Hastegaのインストールは1コマンドで完了し，設定は一切不要**
+		* \* CuPyが古いバージョンのCUDAを要求する
+			* そのことを突き止めるのに多大な調査工数を必要とした(手順の数には含まず)
+		* \** GCE では Python はプリインストールされている
