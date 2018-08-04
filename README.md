@@ -3,7 +3,7 @@
 ## インストール方法
 
 ```
-$ gem install slim html2slim
+$ gem install slim html2slim redcarpet
 $ yarn global add bower yo grunt-cli generator-reveal gulp
 $ git clone git@github.com:zeam-vm/GPU-SWoPP-2018-pr.git
 $ cd GPU-SWoPP-2018-pr
